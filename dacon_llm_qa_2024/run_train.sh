@@ -7,7 +7,7 @@ deepspeed --num_gpus 4 --master_port=9001 train.py \
     --model_name_or_path yanolja/EEVE-Korean-10.8B-v1.0 \
     --dataset 20240228_only_train \
     --dataset_dir data \
-    --template default \
+    --template solar \
     --finetuning_type full \
     --output_dir checkpoints \
     --cutoff_len 4096 \

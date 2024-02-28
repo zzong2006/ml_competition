@@ -1,4 +1,5 @@
 llmtuner==0.5.2
-pandas
-vllm
+pandas==2.2.1
+vllm==0.3.2
 ipywidgets
+deepspeed==0.13.4
