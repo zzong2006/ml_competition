@@ -1,19 +1,24 @@
-deepspeed --num_gpus 8 --master_port=9901 src/train_bash.py \
-    --deepspeed ds_config.json
+deepspeed --num_gpus 4 --master_port=9001 train.py \
+    --deepspeed deepspeed_zero3.json \
     --stage sft \
     --do_train \
-    --model_name_or_path path_to_llama_model \
-    --dataset alpaca_gpt4_en \
+    --tf32 true \
+    --bf16 true \
+    --model_name_or_path yanolja/EEVE-Korean-10.8B-v1.0 \
+    --dataset 20240228_only_train \
+    --dataset_dir data \
     --template default \
-    --finetuning_type lora \
-    --lora_target q_proj,v_proj \
-    --output_dir path_to_sft_checkpoint \
-    --overwrite_cache \
+    --finetuning_type full \
+    --output_dir checkpoints \
+    --cutoff_len 4096 \
     --per_device_train_batch_size 4 \
     --gradient_accumulation_steps 4 \
+    --save_strategy epoch \
+    --save_total_limit 1 \
     --lr_scheduler_type cosine \
-    --logging_steps 10 \
-    --save_steps 1000 \
-    --learning_rate 5e-5 \
-    --num_train_epochs 3.0 \
+    --logging_steps 1 \
+    --learning_rate 2e-5 \
+    --save_safetensors true \
+    --save_only_model true \
+    --num_train_epochs 6.0 \
     --plot_loss
