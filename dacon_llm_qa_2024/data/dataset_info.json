@@ -1,0 +1,11 @@
+{
+    "20240228_only_train": {
+        "file_name": "20240228_only_train.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output",
+            "history": "history"
+        }
+    }
+}
