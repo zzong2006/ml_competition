@@ -1,0 +1,4 @@
+llmtuner==0.5.2
+pandas
+vllm
+ipywidgets
