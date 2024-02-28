@@ -17,7 +17,9 @@ deepspeed --num_gpus 4 --master_port=9001 train.py \
     --save_total_limit 1 \
     --lr_scheduler_type cosine \
     --logging_steps 1 \
+    --use_fast_tokenizer true \
     --learning_rate 2e-5 \
+    --overwrite_output_dir true \
     --save_safetensors true \
     --save_only_model true \
     --num_train_epochs 6.0 \
